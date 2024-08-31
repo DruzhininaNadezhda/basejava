@@ -2,7 +2,7 @@
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    Resume[] storage = new Resume[3];
+    Resume[] storage = new Resume[1000];
     private int size = 0;
 
     void clear() {
@@ -13,8 +13,7 @@ public class ArrayStorage {
     }
 
     void save(Resume r) {
-        storage[size] = r;
-        size++;
+        storage[size++] = r;
     }
 
     Resume get(String uuid) {
@@ -30,7 +29,7 @@ public class ArrayStorage {
         for (int i = 0; i < size; i++) {
             if (storage[i].uuid.equals(uuid)) {
                 storage[i] = storage[size - 1];
-                storage[size - 1]=null;
+                storage[size - 1] = null;
                 size--;
                 break;
             }
